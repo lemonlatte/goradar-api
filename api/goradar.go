@@ -17,10 +17,12 @@ type GoRadarData struct {
 }
 
 type PokemonLocation struct {
-	Id        int     `json:"pokemon_id"`
-	Name      string  `json:"pokemon_name"`
-	Longitude float64 `json:"longitude"`
-	Latitude  float64 `json:"latitude"`
+	Id            string  `json:"encounter_id"`
+	PokemonId     int64   `json:"pokemon_id"`
+	Name          string  `json:"pokemon_name"`
+	DisappearTime int64   `json:"disappear_time"`
+	Longitude     float64 `json:"longitude"`
+	Latitude      float64 `json:"latitude"`
 }
 
 func GetPokemon(request func(*http.Request) (*http.Response, error), swLat, swLng, neLat, neLng float64) (v *GoRadarData, err error) {
